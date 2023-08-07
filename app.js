@@ -1,7 +1,9 @@
-const fs = require("fs");
+const http = require('http');
 
-let textIn = fs.readFileSync('./files/input.txt', 'utf-8');
+const server = http.createServer((req, res) => {
+    console.log('request received');
+});
 
-textIn = `Contents read from file is: ${textIn}. \n date: ${new Date()}`;
-
-fs.writeFileSync('./files/output.txt', textIn);
+server.listen(8000, '127.0.0.1',() => {
+    console.log('server started');
+});
