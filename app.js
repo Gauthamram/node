@@ -1,15 +1,7 @@
-const readLine = require('readline');
+const fs = require("fs");
 
-let rl = readLine.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
+let textIn = fs.readFileSync('./files/input.txt', 'utf-8');
 
-rl.question("what is your name", (name) => {
-    console.log("you entered: "+name);
-    rl.close();
-})
+textIn = `Contents read from file is: ${textIn}. \n date: ${new Date()}`;
 
-rl.on("close", () => {
-   console.log("Interface is closed"); 
-});
+fs.writeFileSync('./files/output.txt', textIn);
